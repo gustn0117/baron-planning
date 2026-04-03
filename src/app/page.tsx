@@ -1,65 +1,218 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const portfolioItems = [
+  { title: '개봉 해피트리 앤 루브루', desc: '2024 | 서울 구로구 | 아파트 295세대', img: '/images/result/portfolio1.jpg' },
+  { title: '부천 브라운스톤 여월', desc: '2023 | 경기도 부천시 | 아파트 142세대', img: '/images/result/portfolio2.jpg' },
+  { title: '부천 이안 시그니처 역곡', desc: '2022 | 경기도 부천시 | 아파트 99세대', img: '/images/result/portfolio3.jpg' },
+  { title: '부천 브라운스톤 원종', desc: '2022 | 경기도 부천시 | 아파트 137세대', img: '/images/result/portfolio-p2-1.jpg' },
+  { title: '송추 북한산 경남 아너스빌', desc: '2020 | 경기도 양주시 | 아파트 604세대', img: '/images/result/portfolio-p2-2.png' },
+  { title: '김포 캐슬 앤 파밀리에 시티', desc: '2020 | 경기도 김포시 | 상가 36호실', img: '/images/result/portfolio-p2-3.jpg' },
+];
+
+export default function HomePage() {
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    sectionsRef.current.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const addRef = (el: HTMLDivElement | null, index: number) => {
+    if (el) sectionsRef.current[index] = el;
+  };
+
+  const scrollDown = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth',
+    });
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div
+          className="hero-bg"
+          style={{ backgroundImage: 'url(/images/main/hero-bg.gif)' }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(0,0,0,0.3)',
+            zIndex: 1,
+          }}
+        />
+        <button className="scroll-indicator" onClick={scrollDown}>
+          <Image
+            src="/images/main/scroll-icon.gif"
+            alt="scroll"
+            width={20}
+            height={20}
+          />
+          scroll
+        </button>
+      </section>
+
+      {/* Be My Guest Section */}
+      <div ref={(el) => addRef(el, 0)} className="main-section">
+        <section className="guest-section">
+          <p className="guest-label">Be my Guest.</p>
+          <h2 className="guest-title">
+            풍부한 경험을 토대로 한 노하우를 바탕으로
+            <br />
+            부동산 시장의 변화를 예측하며 한 발 앞서 나아갑니다.
+          </h2>
+        </section>
+      </div>
+
+      {/* Sales Department Section */}
+      <div ref={(el) => addRef(el, 1)} className="main-section">
+        <section className="dept-section">
+          <div
+            className="dept-bg"
+            style={{ backgroundImage: 'url(/images/main/hero-bg2.jpg)' }}
+          />
+          <div className="dept-content">
+            <h2 className="dept-title">분양사업부</h2>
+            <p className="dept-subtitle">Sales Department</p>
+            <p className="dept-desc">
+              20년 이상의 분양 전문 베테랑
+              <br />
+              체계적이고 성공적인 분양 신화를 이끌고 있습니다.
+            </p>
+            <div className="dept-cards" style={{ maxWidth: '600px' }}>
+              {['부동산컨설팅', '부동산개발', '부동산마케팅', '분양대행'].map(
+                (item) => (
+                  <div
+                    key={item}
+                    style={{
+                      background: 'rgba(255,255,255,0.15)',
+                      backdropFilter: 'blur(10px)',
+                      padding: '20px',
+                      borderRadius: '12px',
+                      fontSize: '16px',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {item}
+                  </div>
+                )
+              )}
+            </div>
+            <Link
+              href="/sales"
+              style={{
+                display: 'inline-block',
+                marginTop: '40px',
+                padding: '12px 30px',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '30px',
+                fontSize: '15px',
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              바로가기 →
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      {/* Advertising Department Section */}
+      <div ref={(el) => addRef(el, 2)} className="main-section">
+        <section className="dept-section">
+          <div
+            className="dept-bg"
+            style={{ backgroundImage: 'url(/images/ad/ad-bg.jpg)' }}
+          />
+          <div className="dept-content">
+            <h2 className="dept-title">광고사업부</h2>
+            <p className="dept-subtitle">Advertising Department</p>
+            <p className="dept-desc">
+              2D, 3D 각 분야 광고 전문가
+              <br />
+              외주 없는 최상의 퀄리티를 제공합니다.
+            </p>
+            <div className="dept-cards" style={{ maxWidth: '600px' }}>
+              {['사이버모델하우스', '분양광고디자인', '온라인마케팅', '홈페이지제작'].map(
+                (item) => (
+                  <div
+                    key={item}
+                    style={{
+                      background: 'rgba(255,255,255,0.15)',
+                      backdropFilter: 'blur(10px)',
+                      padding: '20px',
+                      borderRadius: '12px',
+                      fontSize: '16px',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {item}
+                  </div>
+                )
+              )}
+            </div>
+            <Link
+              href="/advertising"
+              style={{
+                display: 'inline-block',
+                marginTop: '40px',
+                padding: '12px 30px',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '30px',
+                fontSize: '15px',
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+              바로가기 →
+            </Link>
+          </div>
+        </section>
+      </div>
+
+      {/* Portfolio Preview Section */}
+      <div ref={(el) => addRef(el, 3)} className="main-section">
+        <section style={{ padding: '120px 40px', maxWidth: '1400px', margin: '0 auto' }}>
+          <div className="portfolio-grid" style={{ padding: 0 }}>
+            {portfolioItems.map((item, i) => (
+              <div key={i} className="portfolio-item">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                />
+                <div className="portfolio-item-overlay">
+                  <h3 className="portfolio-item-title">{item.title}</h3>
+                  <p className="portfolio-item-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '60px' }}>
+            <Link href="/portfolio" className="portfolio-link">
+              포트폴리오 →
+            </Link>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
