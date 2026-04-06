@@ -5,10 +5,10 @@ export const metadata = {
 };
 
 const cards = [
-  { label: 'ADVERTISING', title: '사이버\n모델하우스', img: '/images/ad/card1.jpg' },
-  { label: 'ADVERTISING', title: '분양광고\n디자인', img: '/images/ad/card2.jpg' },
-  { label: 'ADVERTISING', title: '온라인\n마케팅', img: '/images/ad/card3.jpg' },
-  { label: 'ADVERTISING', title: '홈페이지\n제작', img: '/images/ad/card4.jpg' },
+  { label: 'VIRTUAL TOUR', title: '사이버\n모델하우스', img: '/images/ad/card1.jpg' },
+  { label: 'DESIGN', title: '분양광고\n디자인', img: '/images/ad/card2.jpg' },
+  { label: 'DIGITAL', title: '온라인\n마케팅', img: '/images/ad/card3.jpg' },
+  { label: 'WEB', title: '홈페이지\n제작', img: '/images/ad/card4.jpg' },
 ];
 
 export default function AdvertisingPage() {
@@ -19,13 +19,16 @@ export default function AdvertisingPage() {
         style={{ backgroundImage: 'url(/images/ad/ad-bg.jpg)' }}
       />
       <div className="dept-content">
-        <h1 className="dept-title">광고사업부</h1>
-        <p className="dept-subtitle">Advertising Department</p>
-        <p className="dept-desc">
-          광고 전문팀을 구성한 바론플래닝은
-          <br />
-          분양에 필요한 2D, 3D 광고 컨텐츠를 자체 제작하고 있습니다.
-        </p>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <p className="dept-label" style={{ textAlign: 'center' }}>Advertising Department</p>
+          <h1 className="dept-title" style={{ textAlign: 'center' }}><strong>광고사업부</strong></h1>
+          <p className="dept-subtitle">Advertising Department</p>
+          <p className="dept-desc">
+            광고 전문팀을 구성한 바론플래닝은
+            <br />
+            분양에 필요한 2D, 3D 광고 컨텐츠를 자체 제작하고 있습니다.
+          </p>
+        </div>
         <div className="dept-cards">
           {cards.map((card, i) => (
             <div key={i} className="dept-card">

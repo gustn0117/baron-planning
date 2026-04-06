@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
 const projectsData: Record<string, {
@@ -62,15 +61,13 @@ export default async function PortfolioDetailPage({
       >
         <div className="detail-hero-content">
           <p className="detail-label">분양현장</p>
-          <h1 className="detail-title">{project.title}</h1>
+          <h1 className="detail-title"><strong>{project.title}</strong></h1>
         </div>
       </div>
 
       {/* Project Info Table */}
       <div className="detail-table">
-        <h2 style={{ fontSize: '20px', fontWeight: 700, marginBottom: '30px' }}>
-          {project.title}
-        </h2>
+        <h2>{project.title}</h2>
         <table>
           <tbody>
             <tr>
@@ -106,7 +103,7 @@ export default async function PortfolioDetailPage({
           </tbody>
         </table>
 
-        <div style={{ textAlign: 'center', marginTop: '60px' }}>
+        <div style={{ textAlign: 'center', marginTop: '80px' }}>
           <Link href="/portfolio" className="portfolio-link">
             ← 목록으로 돌아가기
           </Link>

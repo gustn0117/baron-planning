@@ -54,22 +54,11 @@ export default function HomePage() {
           className="hero-bg"
           style={{ backgroundImage: 'url(/images/main/hero-bg.gif)' }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(0,0,0,0.3)',
-            zIndex: 1,
-          }}
-        />
-        <button className="scroll-indicator" onClick={scrollDown}>
-          <Image
-            src="/images/main/scroll-icon.gif"
-            alt="scroll"
-            width={20}
-            height={20}
-          />
-          scroll
+        <div className="hero-overlay" />
+        <button className="scroll-indicator" onClick={scrollDown} aria-label="스크롤">
+          <div className="scroll-mouse">
+            <div className="scroll-dot" />
+          </div>
         </button>
       </section>
 
@@ -93,45 +82,27 @@ export default function HomePage() {
             style={{ backgroundImage: 'url(/images/main/hero-bg2.jpg)' }}
           />
           <div className="dept-content">
-            <h2 className="dept-title">분양사업부</h2>
-            <p className="dept-subtitle">Sales Department</p>
-            <p className="dept-desc">
-              20년 이상의 분양 전문 베테랑
-              <br />
-              체계적이고 성공적인 분양 신화를 이끌고 있습니다.
-            </p>
-            <div className="dept-cards" style={{ maxWidth: '600px' }}>
-              {['부동산컨설팅', '부동산개발', '부동산마케팅', '분양대행'].map(
-                (item) => (
-                  <div
-                    key={item}
-                    style={{
-                      background: 'rgba(255,255,255,0.15)',
-                      backdropFilter: 'blur(10px)',
-                      padding: '20px',
-                      borderRadius: '12px',
-                      fontSize: '16px',
-                      fontWeight: 600,
-                    }}
-                  >
-                    {item}
-                  </div>
-                )
-              )}
+            <div className="dept-content-inner">
+              <p className="dept-label">Sales Department</p>
+              <h2 className="dept-title"><strong>분양사업부</strong></h2>
+              <p className="dept-desc">
+                20년 이상의 분양 전문 베테랑으로 구성,
+                <br />
+                체계적이고 성공적인 분양 신화를 이끌고 있습니다.
+              </p>
+              <div className="dept-mini-cards">
+                {['부동산컨설팅', '부동산개발', '부동산마케팅', '분양대행'].map(
+                  (item) => (
+                    <div key={item} className="dept-mini-card">
+                      {item}
+                    </div>
+                  )
+                )}
+              </div>
+              <Link href="/sales" className="dept-more-link">
+                자세히 보기 →
+              </Link>
             </div>
-            <Link
-              href="/sales"
-              style={{
-                display: 'inline-block',
-                marginTop: '40px',
-                padding: '12px 30px',
-                border: '1px solid rgba(255,255,255,0.5)',
-                borderRadius: '30px',
-                fontSize: '15px',
-              }}
-            >
-              바로가기 →
-            </Link>
           </div>
         </section>
       </div>
@@ -144,53 +115,44 @@ export default function HomePage() {
             style={{ backgroundImage: 'url(/images/ad/ad-bg.jpg)' }}
           />
           <div className="dept-content">
-            <h2 className="dept-title">광고사업부</h2>
-            <p className="dept-subtitle">Advertising Department</p>
-            <p className="dept-desc">
-              2D, 3D 각 분야 광고 전문가
-              <br />
-              외주 없는 최상의 퀄리티를 제공합니다.
-            </p>
-            <div className="dept-cards" style={{ maxWidth: '600px' }}>
-              {['사이버모델하우스', '분양광고디자인', '온라인마케팅', '홈페이지제작'].map(
-                (item) => (
-                  <div
-                    key={item}
-                    style={{
-                      background: 'rgba(255,255,255,0.15)',
-                      backdropFilter: 'blur(10px)',
-                      padding: '20px',
-                      borderRadius: '12px',
-                      fontSize: '16px',
-                      fontWeight: 600,
-                    }}
-                  >
-                    {item}
-                  </div>
-                )
-              )}
+            <div className="dept-content-inner">
+              <p className="dept-label">Advertising Department</p>
+              <h2 className="dept-title"><strong>광고사업부</strong></h2>
+              <p className="dept-desc">
+                2D, 3D 각 분야 광고 전문가로 구성,
+                <br />
+                외주 없는 최상의 퀄리티를 제공합니다.
+              </p>
+              <div className="dept-mini-cards">
+                {['사이버모델하우스', '분양광고디자인', '온라인마케팅', '홈페이지제작'].map(
+                  (item) => (
+                    <div key={item} className="dept-mini-card">
+                      {item}
+                    </div>
+                  )
+                )}
+              </div>
+              <Link href="/advertising" className="dept-more-link">
+                자세히 보기 →
+              </Link>
             </div>
-            <Link
-              href="/advertising"
-              style={{
-                display: 'inline-block',
-                marginTop: '40px',
-                padding: '12px 30px',
-                border: '1px solid rgba(255,255,255,0.5)',
-                borderRadius: '30px',
-                fontSize: '15px',
-              }}
-            >
-              바로가기 →
-            </Link>
           </div>
         </section>
       </div>
 
       {/* Portfolio Preview Section */}
       <div ref={(el) => addRef(el, 3)} className="main-section">
-        <section style={{ padding: '120px 40px', maxWidth: '1400px', margin: '0 auto' }}>
-          <div className="portfolio-grid" style={{ padding: 0 }}>
+        <section className="portfolio-preview">
+          <div className="portfolio-preview-header">
+            <div>
+              <p className="section-label">Portfolio</p>
+              <h2 className="section-heading"><strong>사업실적</strong></h2>
+            </div>
+            <Link href="/portfolio" className="portfolio-link">
+              View All →
+            </Link>
+          </div>
+          <div className="portfolio-grid">
             {portfolioItems.map((item, i) => (
               <div key={i} className="portfolio-item">
                 <Image
@@ -205,11 +167,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '60px' }}>
-            <Link href="/portfolio" className="portfolio-link">
-              포트폴리오 →
-            </Link>
           </div>
         </section>
       </div>

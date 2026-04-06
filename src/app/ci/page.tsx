@@ -6,7 +6,7 @@ export const metadata = {
 
 export default function CIPage() {
   return (
-    <div style={{ paddingTop: '90px' }}>
+    <div style={{ paddingTop: '100px' }}>
       <section className="ci-section">
         <div className="ci-image-wrapper">
           <Image

@@ -47,8 +47,8 @@ export default function Header() {
           <Image
             src={scrolled || (!isHome && !isDarkPage) ? '/images/logo/baron-logo.png' : '/images/logo/baron-logo-white.png'}
             alt="바론플래닝"
-            width={180}
-            height={50}
+            width={160}
+            height={40}
             priority
           />
         </Link>
