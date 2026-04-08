@@ -80,7 +80,7 @@ export default function AboutPage() {
             </div>
             <div className="val-text">
               <span className="val-num">01</span>
-              <h3>부동산 개발<br />종합 서비스 회사</h3>
+              <h3>부동산 개발<br /><strong>종합 서비스 회사</strong></h3>
               <p>
                 20년간의 분양 현장 경험과 노하우를 가지고
                 최상의 서비스를 제공하기 위해 끊임없이 도전합니다.
@@ -95,7 +95,7 @@ export default function AboutPage() {
             </div>
             <div className="val-text">
               <span className="val-num">02</span>
-              <h3>전문적인 부동산<br />개발 및 마케팅</h3>
+              <h3>전문적인 부동산<br /><strong>개발 및 마케팅</strong></h3>
               <p>
                 신뢰도 있는 정보를 바탕으로 고객에게 양질의 서비스를
                 제공하기 위해 멈추지 않고 끊임없이 개선하고 도전합니다.
@@ -111,7 +111,7 @@ export default function AboutPage() {
             <div className="val-text">
               <span className="val-num">03</span>
               <p className="val-badge">ALL IN ONE</p>
-              <h3>광고와 분양을 함께 하는<br />독보적인 솔루션</h3>
+              <h3>광고와 분양을 함께 하는<br /><strong>독보적인 솔루션</strong></h3>
               <p>
                 분양사업부와 광고사업부를 조직하여 각 분야 전문가가 외주 없이 직접 제작하여
                 합리적인 가격으로 최상의 퀄리티를 제공할 수 있도록 프로젝트가 진행됩니다.

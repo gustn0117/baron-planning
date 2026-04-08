@@ -567,7 +567,7 @@ img {
 .val-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 480px;
+  min-height: 520px;
 }
 
 .val-row-reverse {
@@ -578,70 +578,114 @@ img {
   direction: ltr;
 }
 
+/* Image */
 .val-img {
   position: relative;
   overflow: hidden;
 }
 
+.val-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26,26,26,0.15) 0%, rgba(26,26,26,0) 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
 .val-img img {
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .val-row:hover .val-img img {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
+/* Text */
 .val-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 64px 72px;
+  padding: 72px 80px;
   background: var(--white);
-  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.val-text::before {
+  content: '';
+  position: absolute;
+  top: 72px;
+  left: 80px;
+  width: 32px;
+  height: 2px;
+  background: var(--gold);
 }
 
 .val-row-reverse .val-text {
-  background: var(--light);
+  background: var(--light-warm);
 }
 
+.val-row-reverse .val-text::before {
+  left: auto;
+  right: 80px;
+}
+
+/* Number */
 .val-num {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 3px;
-  margin-bottom: 24px;
+  font-size: 48px;
+  font-weight: 200;
+  color: var(--border);
+  letter-spacing: -1px;
+  margin-bottom: 32px;
+  line-height: 1;
+  padding-top: 20px;
 }
 
+/* Title */
 .val-text h3 {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 300;
   color: var(--dark);
-  line-height: 1.4;
-  margin-bottom: 20px;
+  line-height: 1.5;
+  margin-bottom: 24px;
   letter-spacing: -0.3px;
 }
 
+.val-text h3 strong {
+  font-weight: 700;
+}
+
+/* Description */
 .val-text > p {
   font-size: 15px;
-  line-height: 1.9;
+  line-height: 2;
   color: var(--text-secondary);
   font-weight: 300;
 }
 
+/* ALL IN ONE badge */
 .val-badge {
-  font-size: 12px;
+  display: inline-block;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 4px;
   color: var(--gold);
-  margin-bottom: 8px;
+  border: 1px solid var(--gold);
+  padding: 6px 16px;
+  margin-bottom: 16px;
+  width: fit-content;
 }
 
+/* Award text */
 .val-award {
-  margin-top: 24px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
   font-size: 12px;
   color: var(--text-muted);
   font-style: italic;
   letter-spacing: 0.3px;
+  line-height: 1.8;
 }
 
 /* About intro */
@@ -1595,15 +1639,29 @@ img {
   }
 
   .val-row {
-    min-height: 400px;
+    min-height: 420px;
   }
 
   .val-text {
-    padding: 48px 40px;
+    padding: 56px 48px;
+  }
+
+  .val-text::before {
+    top: 56px;
+    left: 48px;
+  }
+
+  .val-row-reverse .val-text::before {
+    left: auto;
+    right: 48px;
   }
 
   .val-text h3 {
-    font-size: 22px;
+    font-size: 24px;
+  }
+
+  .val-num {
+    font-size: 40px;
   }
 
   .portfolio-grid {
@@ -1899,8 +1957,22 @@ img {
     padding: 36px 24px;
   }
 
+  .val-text::before {
+    top: 36px;
+    left: 24px;
+  }
+
+  .val-row-reverse .val-text::before {
+    left: 24px;
+    right: auto;
+  }
+
   .val-text h3 {
-    font-size: 20px;
+    font-size: 22px;
+  }
+
+  .val-num {
+    font-size: 36px;
   }
 
   .intro-section {
