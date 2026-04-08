@@ -554,68 +554,90 @@ img {
   font-weight: 700;
 }
 
-/* About values */
+/* About values - image + text rows */
 .about-values {
   padding: 0 60px 160px;
   max-width: 1600px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
-.about-values-grid {
+.val-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
 }
 
-.about-value-card {
-  padding: 48px 36px;
-  border: 1px solid var(--border);
-  transition: all 0.4s ease;
+.val-row-reverse {
+  direction: rtl;
 }
 
-.about-value-card:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+.val-row-reverse > * {
+  direction: ltr;
 }
 
-.about-value-num {
-  display: block;
-  font-size: 13px;
+.val-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.val-img img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.val-row:hover .val-img img {
+  transform: scale(1.04);
+}
+
+.val-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 64px 72px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.val-row-reverse .val-text {
+  background: var(--light);
+}
+
+.val-num {
+  font-size: 12px;
   font-weight: 600;
   color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 28px;
+  letter-spacing: 3px;
+  margin-bottom: 24px;
 }
 
-.about-value-card h3 {
-  font-size: 19px;
+.val-text h3 {
+  font-size: 26px;
   font-weight: 700;
   color: var(--dark);
-  line-height: 1.5;
+  line-height: 1.4;
   margin-bottom: 20px;
+  letter-spacing: -0.3px;
 }
 
-.about-value-card > p {
-  font-size: 14px;
+.val-text > p {
+  font-size: 15px;
   line-height: 1.9;
   color: var(--text-secondary);
   font-weight: 300;
 }
 
-.about-value-highlight {
-  background: var(--light);
-}
-
-.about-value-badge {
+.val-badge {
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 3px;
+  font-weight: 700;
+  letter-spacing: 4px;
   color: var(--gold);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
-.about-value-sub {
-  margin-top: 20px;
+.val-award {
+  margin-top: 24px;
   font-size: 12px;
   color: var(--text-muted);
   font-style: italic;
@@ -1572,13 +1594,16 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .about-values-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  .val-row {
+    min-height: 400px;
   }
 
-  .about-value-card {
-    padding: 36px 28px;
+  .val-text {
+    padding: 48px 40px;
+  }
+
+  .val-text h3 {
+    font-size: 22px;
   }
 
   .portfolio-grid {
@@ -1635,7 +1660,7 @@ img {
   }
 
   .about-values {
-    padding: 0 32px 120px;
+    padding: 0 0 120px;
   }
 
   .dept-content {
@@ -1854,12 +1879,28 @@ img {
   }
 
   .about-values {
-    padding: 0 20px 80px;
+    padding: 0 0 60px;
   }
 
-  .about-values-grid {
+  .val-row {
     grid-template-columns: 1fr;
-    gap: 16px;
+    min-height: auto;
+  }
+
+  .val-row-reverse {
+    direction: ltr;
+  }
+
+  .val-img {
+    aspect-ratio: 16/9;
+  }
+
+  .val-text {
+    padding: 36px 24px;
+  }
+
+  .val-text h3 {
+    font-size: 20px;
   }
 
   .intro-section {

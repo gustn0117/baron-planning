@@ -70,35 +70,53 @@ export default function AboutPage() {
         </section>
       </div>
 
-      {/* Features */}
+      {/* Values */}
       <div ref={(el) => addRef(el, 1)} className="main-section">
         <section className="about-values">
-          <div className="about-values-grid">
-            <div className="about-value-card">
-              <span className="about-value-num">01</span>
-              <h3>부동산 개발 종합 서비스 회사</h3>
+          {/* Value 1 */}
+          <div className="val-row">
+            <div className="val-img">
+              <Image src="/images/about/value1.jpg" alt="부동산 개발 종합 서비스" fill style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="val-text">
+              <span className="val-num">01</span>
+              <h3>부동산 개발<br />종합 서비스 회사</h3>
               <p>
                 20년간의 분양 현장 경험과 노하우를 가지고
                 최상의 서비스를 제공하기 위해 끊임없이 도전합니다.
               </p>
             </div>
-            <div className="about-value-card">
-              <span className="about-value-num">02</span>
-              <h3>전문적인 부동산 개발 및 마케팅</h3>
+          </div>
+
+          {/* Value 2 - reversed */}
+          <div className="val-row val-row-reverse">
+            <div className="val-img">
+              <Image src="/images/about/value2.jpg" alt="전문적인 부동산 마케팅" fill style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="val-text">
+              <span className="val-num">02</span>
+              <h3>전문적인 부동산<br />개발 및 마케팅</h3>
               <p>
                 신뢰도 있는 정보를 바탕으로 고객에게 양질의 서비스를
                 제공하기 위해 멈추지 않고 끊임없이 개선하고 도전합니다.
               </p>
             </div>
-            <div className="about-value-card about-value-highlight">
-              <span className="about-value-num">03</span>
-              <p className="about-value-badge">ALL IN ONE</p>
-              <h3>광고와 분양을 함께 하는 독보적인 솔루션</h3>
+          </div>
+
+          {/* Value 3 - ALL IN ONE */}
+          <div className="val-row">
+            <div className="val-img">
+              <Image src="/images/about/value3.jpg" alt="ALL IN ONE 솔루션" fill style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="val-text">
+              <span className="val-num">03</span>
+              <p className="val-badge">ALL IN ONE</p>
+              <h3>광고와 분양을 함께 하는<br />독보적인 솔루션</h3>
               <p>
                 분양사업부와 광고사업부를 조직하여 각 분야 전문가가 외주 없이 직접 제작하여
                 합리적인 가격으로 최상의 퀄리티를 제공할 수 있도록 프로젝트가 진행됩니다.
               </p>
-              <p className="about-value-sub">
+              <p className="val-award">
                 * 세계 3대 디자인 어워드 수상, 홍익대학교 IDAS 디자인학 석사
               </p>
             </div>
