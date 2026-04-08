@@ -310,42 +310,27 @@ export default async function PortfolioDetailPage({
 
       {/* Project Info Table */}
       {hasTable && (
-        <div className="detail-table">
-          <h2>{project.shortTitle}</h2>
-          <table>
-            <tbody>
-              <tr>
-                <th>대지위치</th>
-                <td>{project.location}</td>
-                <th>구조</th>
-                <td>{project.structure}</td>
-              </tr>
-              <tr>
-                <th>대지면적</th>
-                <td>{project.landArea}</td>
-                <th>규모</th>
-                <td>{project.scale}</td>
-              </tr>
-              <tr>
-                <th>건축면적</th>
-                <td>{project.buildArea}</td>
-                <th>공급평형</th>
-                <td style={{ whiteSpace: 'pre-line' }}>{project.types}</td>
-              </tr>
-              <tr>
-                <th>연면적</th>
-                <td>{project.totalArea}</td>
-                <th>용적률</th>
-                <td>{project.floorRatio}</td>
-              </tr>
-              <tr>
-                <th>건폐율</th>
-                <td>{project.coverage}</td>
-                <th>주차대수</th>
-                <td>{project.parking}</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="detail-info">
+          <h2 className="detail-info-title">{project.shortTitle}</h2>
+          <div className="detail-info-grid">
+            {[
+              { label: '대지위치', value: project.location },
+              { label: '구조', value: project.structure },
+              { label: '대지면적', value: project.landArea },
+              { label: '규모', value: project.scale },
+              { label: '건축면적', value: project.buildArea },
+              { label: '공급평형', value: project.types },
+              { label: '연면적', value: project.totalArea },
+              { label: '용적률', value: project.floorRatio },
+              { label: '건폐율', value: project.coverage },
+              { label: '주차대수', value: project.parking },
+            ].map((item, i) => (
+              <div key={i} className="detail-info-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
