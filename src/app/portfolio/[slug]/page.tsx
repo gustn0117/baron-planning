@@ -126,9 +126,8 @@ const projectsData: Record<string, ProjectData> = {
   },
   honorsville: {
     title: '송추 북한산 경남 아너스빌',
-    shortTitle: '경남 아너스빌',
+    shortTitle: '송추 북한산 경남 아너스빌',
     bgImg: '/images/result/detail/honorsville-hero.jpg',
-    logoImg: '/images/result/detail/honorsville-logo.png',
     galleryImgs: ['/images/result/detail/honorsville-hero.jpg'],
     location: '경기도 양주시 장흥면 부곡리 524-2번지',
     structure: '철근콘크리트구조',
