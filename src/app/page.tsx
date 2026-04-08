@@ -10,7 +10,7 @@ const portfolioItems = [
   { title: '부천 이안 시그니처 역곡', desc: '2022 | 경기도 부천시 | 아파트 99세대', img: '/images/result/portfolio3.jpg' },
   { title: '부천 브라운스톤 원종', desc: '2022 | 경기도 부천시 | 아파트 137세대', img: '/images/result/portfolio-p2-1.jpg' },
   { title: '송추 북한산 경남 아너스빌', desc: '2020 | 경기도 양주시 | 아파트 604세대', img: '/images/result/portfolio-p2-2.png' },
-  { title: '김포 캐슬 앤 파밀리에 시티', desc: '2020 | 경기도 김포시 | 상가 36호실', img: '/images/result/portfolio-p2-3.jpg' },
+  { title: '김포 캐슬 앤 파밀리에 시티', desc: '2020 | 경기도 김포시 | 상가 36호실', img: '/images/result/portfolio-p2-3.png' },
 ];
 
 export default function HomePage() {
