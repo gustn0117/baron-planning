@@ -208,7 +208,6 @@ const projectsData: Record<string, ProjectData> = {
     title: '동탄서해그랑블',
     shortTitle: '동탄 서해 그랑블',
     bgImg: '/images/result/detail/seohae-hero.jpg',
-    logoImg: '/images/result/detail/seohae-logo.png',
     galleryImgs: ['/images/result/detail/seohae-gallery.jpg'],
     location: '화성시 동탄신도시 15.-, 18-4, 23-6블럭',
     structure: '철근콘크리트구조',
