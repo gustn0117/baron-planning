@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
+interface TableData {
+  label: string;
+  location: string;
+  structure: string;
+  landArea: string;
+  buildArea: string;
+  totalArea: string;
+  coverage: string;
+  scale: string;
+  types: string;
+  floorRatio: string;
+  parking: string;
+}
+
 interface ProjectData {
   title: string;
   shortTitle: string;
@@ -19,6 +33,7 @@ interface ProjectData {
   parking: string;
   videos: { title: string; youtubeId: string }[];
   sections: string[];
+  extraTables?: TableData[];
 }
 
 const projectsData: Record<string, ProjectData> = {
@@ -168,22 +183,34 @@ const projectsData: Record<string, ProjectData> = {
   },
   rogevian: {
     title: '청주 비하동 대광로제비앙 1, 2차',
-    shortTitle: '대광로제비앙',
+    shortTitle: '청주 비하동 대광로제비앙 1차',
     bgImg: '/images/result/detail/rogevian-hero.png',
-    logoImg: '/images/result/detail/rogevian-logo.png',
     galleryImgs: ['/images/result/detail/rogevian-gallery3.png', '/images/result/detail/rogevian-gallery1.png', '/images/result/detail/rogevian-gallery2.png'],
-    location: '충북 청주시 비하동',
-    structure: '-',
-    landArea: '-',
-    buildArea: '-',
-    totalArea: '-',
-    coverage: '-',
-    scale: '아파트 528세대',
-    types: '-',
-    floorRatio: '-',
-    parking: '-',
+    location: '충청북도 청주시 흥덕구 비하동 823',
+    structure: '철근콘크리트구조',
+    landArea: '21,312.8㎡',
+    buildArea: '4,003.10㎡',
+    totalArea: '60,453.02㎡',
+    coverage: '18.78%',
+    scale: '지하1층~지상27층 6개동 / 418세대',
+    types: '112A / 112B',
+    floorRatio: '222%',
+    parking: '547대',
     videos: [],
     sections: [],
+    extraTables: [{
+      label: '청주 비하동 대광로제비앙 2차',
+      location: '충청북도 청주시 흥덕구 비하동 819',
+      structure: '철근콘크리트구조',
+      landArea: '5,422.8㎡',
+      buildArea: '923.24㎡',
+      totalArea: '16,870.29',
+      coverage: '17%',
+      scale: '지하1층~지상24층 3개동',
+      types: '111A / 111B',
+      floorRatio: '229%',
+      parking: '145대',
+    }],
   },
   'gwanggyo-rogevian': {
     title: '광교 대광 로제비앙',
@@ -371,6 +398,32 @@ export default async function PortfolioDetailPage({
           </div>
         </div>
       )}
+
+      {/* Extra Tables (e.g. 2차) */}
+      {project.extraTables?.map((table, ti) => (
+        <div key={ti} className="detail-info">
+          <h2 className="detail-info-title">{table.label}</h2>
+          <div className="detail-info-grid">
+            {[
+              { label: '대지위치', value: table.location },
+              { label: '구조', value: table.structure },
+              { label: '대지면적', value: table.landArea },
+              { label: '규모', value: table.scale },
+              { label: '건축면적', value: table.buildArea },
+              { label: '공급평형', value: table.types },
+              { label: '연면적', value: table.totalArea },
+              { label: '용적률', value: table.floorRatio },
+              { label: '건폐율', value: table.coverage },
+              { label: '주차대수', value: table.parking },
+            ].map((item, i) => (
+              <div key={i} className="detail-info-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
 
       {/* Back Link */}
       <div style={{ textAlign: 'center', padding: '40px 20px 80px' }}>
