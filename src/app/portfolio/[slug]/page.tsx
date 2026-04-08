@@ -185,7 +185,7 @@ const projectsData: Record<string, ProjectData> = {
     title: '청주 비하동 대광로제비앙 1, 2차',
     shortTitle: '청주 비하동 대광로제비앙 1차',
     bgImg: '/images/result/detail/rogevian-hero.png',
-    galleryImgs: ['/images/result/detail/rogevian-gallery3.png', '/images/result/detail/rogevian-gallery1.png', '/images/result/detail/rogevian-gallery2.png'],
+    galleryImgs: [],
     location: '충청북도 청주시 흥덕구 비하동 823',
     structure: '철근콘크리트구조',
     landArea: '21,312.8㎡',
