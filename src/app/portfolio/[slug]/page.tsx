@@ -318,6 +318,58 @@ export default async function PortfolioDetailPage({
         </div>
       </div>
 
+      {/* Project Info Table */}
+      {hasTable && (
+        <div className="detail-info">
+          <h2 className="detail-info-title">{project.shortTitle}</h2>
+          <div className="detail-info-grid">
+            {[
+              { label: '대지위치', value: project.location },
+              { label: '구조', value: project.structure },
+              { label: '대지면적', value: project.landArea },
+              { label: '규모', value: project.scale },
+              { label: '건축면적', value: project.buildArea },
+              { label: '공급평형', value: project.types },
+              { label: '연면적', value: project.totalArea },
+              { label: '용적률', value: project.floorRatio },
+              { label: '건폐율', value: project.coverage },
+              { label: '주차대수', value: project.parking },
+            ].map((item, i) => (
+              <div key={i} className="detail-info-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Extra Tables (e.g. 2차) */}
+      {project.extraTables?.map((table, ti) => (
+        <div key={ti} className="detail-info">
+          <h2 className="detail-info-title">{table.label}</h2>
+          <div className="detail-info-grid">
+            {[
+              { label: '대지위치', value: table.location },
+              { label: '구조', value: table.structure },
+              { label: '대지면적', value: table.landArea },
+              { label: '규모', value: table.scale },
+              { label: '건축면적', value: table.buildArea },
+              { label: '공급평형', value: table.types },
+              { label: '연면적', value: table.totalArea },
+              { label: '용적률', value: table.floorRatio },
+              { label: '건폐율', value: table.coverage },
+              { label: '주차대수', value: table.parking },
+            ].map((item, i) => (
+              <div key={i} className="detail-info-item">
+                <dt>{item.label}</dt>
+                <dd>{item.value}</dd>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
       {/* Logo */}
       {project.logoImg && (
         <div style={{ textAlign: 'center', padding: '40px 20px 0' }}>
@@ -391,58 +443,6 @@ export default async function PortfolioDetailPage({
           </div>
         </div>
       )}
-
-      {/* Project Info Table */}
-      {hasTable && (
-        <div className="detail-info">
-          <h2 className="detail-info-title">{project.shortTitle}</h2>
-          <div className="detail-info-grid">
-            {[
-              { label: '대지위치', value: project.location },
-              { label: '구조', value: project.structure },
-              { label: '대지면적', value: project.landArea },
-              { label: '규모', value: project.scale },
-              { label: '건축면적', value: project.buildArea },
-              { label: '공급평형', value: project.types },
-              { label: '연면적', value: project.totalArea },
-              { label: '용적률', value: project.floorRatio },
-              { label: '건폐율', value: project.coverage },
-              { label: '주차대수', value: project.parking },
-            ].map((item, i) => (
-              <div key={i} className="detail-info-item">
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Extra Tables (e.g. 2차) */}
-      {project.extraTables?.map((table, ti) => (
-        <div key={ti} className="detail-info">
-          <h2 className="detail-info-title">{table.label}</h2>
-          <div className="detail-info-grid">
-            {[
-              { label: '대지위치', value: table.location },
-              { label: '구조', value: table.structure },
-              { label: '대지면적', value: table.landArea },
-              { label: '규모', value: table.scale },
-              { label: '건축면적', value: table.buildArea },
-              { label: '공급평형', value: table.types },
-              { label: '연면적', value: table.totalArea },
-              { label: '용적률', value: table.floorRatio },
-              { label: '건폐율', value: table.coverage },
-              { label: '주차대수', value: table.parking },
-            ].map((item, i) => (
-              <div key={i} className="detail-info-item">
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
 
       {/* Back Link */}
       <div style={{ textAlign: 'center', padding: '40px 20px 80px' }}>
