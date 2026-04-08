@@ -42,7 +42,6 @@ const projectsData: Record<string, ProjectData> = {
     title: '개봉 해피트리 앤 루브루',
     shortTitle: '해피트리 앤 루브루',
     bgImg: '/images/result/detail/happytree-hero.jpg',
-    logoImg: '/images/result/detail/happytree-logo.png',
     galleryImgs: ['/images/result/detail/happytree-gallery.jpg'],
     location: '서울시 구로구 개봉동 312-38, 369-1',
     structure: '철근콘크리트구조',
