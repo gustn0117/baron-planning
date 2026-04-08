@@ -309,45 +309,16 @@ export default async function PortfolioDetailPage({
 
       {/* Video Sections */}
       {project.videos.length > 0 && (
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '40px 20px' }}>
+        <div className="detail-media">
           {project.videos.map((video, i) => (
-            <div key={i} style={{ marginBottom: '60px' }}>
-              <h3 style={{
-                textAlign: 'center',
-                fontSize: '18px',
-                fontWeight: 700,
-                marginBottom: '24px',
-                padding: '12px 32px',
-                background: 'var(--primary)',
-                color: 'white',
-                borderRadius: '30px',
-                display: 'inline-block',
-                width: 'auto',
-                margin: '0 auto 24px',
-              }}>
-                <span style={{ display: 'block', textAlign: 'center' }}>{video.title}</span>
-              </h3>
-              <div style={{
-                position: 'relative',
-                paddingBottom: '56.25%',
-                height: 0,
-                overflow: 'hidden',
-                borderRadius: '12px',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-              }}>
+            <div key={i} className="detail-video-block">
+              <p className="detail-section-label">{video.title}</p>
+              <div className="detail-video-wrap">
                 <iframe
                   src={`https://www.youtube.com/embed/${video.youtubeId}?wmode=opaque`}
                   title={video.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                  }}
                 />
               </div>
             </div>
@@ -357,34 +328,23 @@ export default async function PortfolioDetailPage({
 
       {/* Gallery Images */}
       {project.galleryImgs.length > 0 && (
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px 60px' }}>
+        <div className="detail-media">
           {project.sections.includes('홍보관') && (
-            <h3 style={{
-              textAlign: 'center',
-              fontSize: '18px',
-              fontWeight: 700,
-              marginBottom: '24px',
-              padding: '12px 32px',
-              background: 'var(--primary)',
-              color: 'white',
-              borderRadius: '30px',
-              display: 'table',
-              margin: '0 auto 24px',
-            }}>
-              홍보관
-            </h3>
+            <p className="detail-section-label">홍보관</p>
           )}
-          {project.galleryImgs.map((img, i) => (
-            <div key={i} style={{ marginBottom: '20px', borderRadius: '12px', overflow: 'hidden' }}>
-              <Image
-                src={img}
-                alt={`${project.title} 이미지 ${i + 1}`}
-                width={900}
-                height={600}
-                style={{ width: '100%', height: 'auto' }}
-              />
-            </div>
-          ))}
+          <div className="detail-gallery">
+            {project.galleryImgs.map((img, i) => (
+              <div key={i} className="detail-gallery-item">
+                <Image
+                  src={img}
+                  alt={`${project.title} 이미지 ${i + 1}`}
+                  width={1200}
+                  height={800}
+                  style={{ width: '100%', height: 'auto' }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
