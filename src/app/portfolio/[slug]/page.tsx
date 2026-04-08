@@ -206,18 +206,18 @@ const projectsData: Record<string, ProjectData> = {
   },
   'seohae-grandble': {
     title: '동탄서해그랑블',
-    shortTitle: '서해그랑블',
+    shortTitle: '동탄 서해 그랑블',
     bgImg: '/images/result/detail/seohae-hero.jpg',
     logoImg: '/images/result/detail/seohae-logo.png',
     galleryImgs: ['/images/result/detail/seohae-gallery.jpg'],
-    location: '경기도 화성시 동탄',
-    structure: '-',
+    location: '화성시 동탄신도시 15.-, 18-4, 23-6블럭',
+    structure: '철근콘크리트구조',
     landArea: '-',
-    buildArea: '-',
+    buildArea: '80,769㎡',
     totalArea: '-',
     coverage: '-',
-    scale: '상가 30호실',
-    types: '-',
+    scale: '지하6층~지상36층 3개동',
+    types: '41(60)/ 42(122)/ 43(7)/ 49(7)/ 57(12)/ 60(12)',
     floorRatio: '-',
     parking: '-',
     videos: [],
@@ -280,7 +280,7 @@ export default async function PortfolioDetailPage({
     );
   }
 
-  const hasTable = project.landArea !== '-';
+  const hasTable = project.location !== '-' && project.location !== '';
 
   return (
     <>
