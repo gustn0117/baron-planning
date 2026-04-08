@@ -31,6 +31,7 @@ interface ProjectData {
   types: string;
   floorRatio: string;
   parking: string;
+  design2dImgs?: string[];
   videos: { title: string; youtubeId: string }[];
   sections: string[];
   extraTables?: TableData[];
@@ -107,14 +108,15 @@ const projectsData: Record<string, ProjectData> = {
     title: '부천 브라운스톤 원종',
     shortTitle: '브라운스톤 원종',
     bgImg: '/images/result/detail/brownstone-wonjong-hero.jpg',
-    galleryImgs: ['/images/result/detail/brownstone-wonjong-gallery1.jpg', '/images/result/detail/brownstone-wonjong-gallery2.jpg'],
-    location: '경기도 부천시 원종동',
-    structure: '철근콘크리트구조',
+    galleryImgs: ['/images/result/detail/brownstone-wonjong-gallery1.jpg'],
+    design2dImgs: ['/images/result/detail/brownstone-wonjong-gallery2.jpg'],
+    location: '-',
+    structure: '-',
     landArea: '-',
     buildArea: '-',
     totalArea: '-',
     coverage: '-',
-    scale: '아파트 137세대',
+    scale: '-',
     types: '-',
     floorRatio: '-',
     parking: '-',
@@ -345,6 +347,26 @@ export default async function PortfolioDetailPage({
               </div>
             </div>
           ))}
+        </div>
+      )}
+
+      {/* 2D 제작물 */}
+      {project.design2dImgs && project.design2dImgs.length > 0 && (
+        <div className="detail-media">
+          <p className="detail-section-label">2D 제작물</p>
+          <div className="detail-gallery">
+            {project.design2dImgs.map((img, i) => (
+              <div key={i} className="detail-gallery-item">
+                <Image
+                  src={img}
+                  alt={`${project.title} 2D 제작물 ${i + 1}`}
+                  width={1200}
+                  height={800}
+                  style={{ width: '100%', height: 'auto' }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
